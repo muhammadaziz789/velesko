@@ -10,7 +10,7 @@ const Info = ({ title, text }) => {
 
       <div className="text-gray">
         <h3 className="font-medium underline">{title}</h3>
-        <p className="mt-1">{text}</p>
+        <p className="mt-1 underline">{text}</p>
       </div>
     </div>
   );

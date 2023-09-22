@@ -26,13 +26,18 @@ export default function HFInputMask({
   }, [defaultValue, setValue, name]);
 
   return (
-    <div className={`w-full ${clasess}`}>
+    <div className={`w-full relative ${clasess}`}>
       {props.label && (
         <p className="text-blackLight text-[14px] font-[700] mb-[6px]">
           {required ? <span className="text-error pr-1">*</span> : ""}
           {t(props.label, `${translation}:${props.label}`)}
         </p>
       )}
+      <img
+        className="absolute left-3 top-1/2 -translate-y-1/2"
+        src="/svg/qr.svg"
+        alt="qr"
+      />
       <Controller
         control={control}
         name={name}
@@ -45,6 +50,7 @@ export default function HFInputMask({
               handleChange(e);
               onChange(e);
             }}
+            type="text"
             inputmode={inputmode}
             mask={props.mask}
             error={error}
@@ -53,7 +59,7 @@ export default function HFInputMask({
               `${translation}:${props.placeholder}`
             )}
             value={value}
-            className={`w-full h-[48px] px-4 outline-none text-dark text-sm font-medium rounded-[12px] ${
+            className={`w-full h-[48px] px-4 text-center outline-none text-dark text-sm font-medium rounded-[12px] ${
               defaultValue
                 ? "placeholder:text-dark"
                 : "placeholder:text-grayLight"
